@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube AI Label Blocker",
+  "version": "1.0.0",
+  "description": "Hide YouTube videos carrying its Made with AI disclosure.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "background": {
+    "scripts": ["settings.js", "background.js"]
+  },
+  "action": {
+    "default_title": "YouTube AI Label Blocker"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "css": ["content.css"],
+      "js": ["settings.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-ai-label-blocker@enaigh.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}

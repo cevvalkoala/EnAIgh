@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube AI Label Blocker Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">YOUTUBE FILTER</p>
+      <h1>AI label blocker</h1>
+      <p class="intro">Hide videos YouTube marks as made with AI. This only uses YouTube's disclosure, not an AI detector.</p>
+
+      <section aria-label="Filter settings">
+        <label class="setting setting-master" for="enabled">
+          <span><strong>Enable filter</strong><small>Master switch, also controlled by the toolbar button</small></span>
+          <input id="enabled" type="checkbox">
+        </label>
+        <label class="setting" for="sidebar">
+          <span><strong>Filter sidebar</strong><small>Watch-page recommendations</small></span>
+          <input id="sidebar" type="checkbox">
+        </label>
+        <label class="setting" for="search">
+          <span><strong>Filter search results</strong><small>Search results, including Shorts results</small></span>
+          <input id="search" type="checkbox">
+        </label>
+        <label class="setting" for="shorts">
+          <span><strong>Filter Shorts</strong><small>Shorts feed and Shorts cards on YouTube</small></span>
+          <input id="shorts" type="checkbox">
+        </label>
+      </section>
+      <p id="status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="settings.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
