@@ -5,13 +5,13 @@ A small Firefox and Chrome extension that hides videos carrying YouTube's own "M
 ## Install for testing
 
 - Chrome: open `chrome://extensions`, enable Developer mode, and choose **Load unpacked** with this folder. Chrome uses the root `manifest.json`.
-- Firefox: open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on**, and select `manifest.firefox.json` (not the root `manifest.json`). Firefox's manifest uses `background.scripts`; loading the Chrome manifest causes the `background.service_worker is currently disabled` error.
+- Firefox: open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on**, and select `extension/manifest.json`. It is named `manifest.json` and uses `background.scripts`; do not select the root Chrome manifest.
 - The toolbar badge shows `ON` or `OFF`; click the extension button to toggle the master filter.
 - Open the extension's options to control sidebar recommendations, search results, and Shorts independently.
 
 ## Detection
 
-The supplied sample pages both include YouTube's structured `metadataBadgeRenderer.accessibilityData.label` value `AI: Content was made with AI` and a disclosure section headed `Made with AI`. The content script checks the label's `aria-label`/`title`, YouTube's video-attribute disclosure element, and the accompanying official help link (`youtube/answer/15447836`). Those markers are checked only inside supported video cards; titles, descriptions, and thumbnails are not used as AI heuristics.
+YouTube's search `videoRenderer` data does not always include its AI badge. For visible supported cards without a DOM disclosure marker, the extension fetches that video's public watch page without cookies and checks the structured `howThisWasMadeSectionViewModel` disclosure (`bodyHeader: "Made with AI"`). Results are cached locally for seven days, with at most three checks running concurrently. This is necessary for search results like the supplied examples, where the label appears on the watch page but not in the search renderer. Direct DOM checks also recognize the accessible AI label and official disclosure link (`youtube/answer/15447836`); titles and thumbnails are never used as heuristics.
 
 Supported surfaces are watch-page sidebar recommendations, search results, Shorts cards, and the Shorts feed. YouTube frequently changes its component markup, so selectors and disclosure markers may need maintenance. Disclosure wording is localized by YouTube; the language-independent help link is recognized alongside the exact English accessible label and disclosure text.
 

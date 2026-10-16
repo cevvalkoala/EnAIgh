@@ -1,4 +1,5 @@
 (function (global) {
+  // Firefox exposes browser; Chrome exposes the equivalent chrome namespace.
   const api = global.browser ?? global.chrome;
   const defaults = Object.freeze({
     enabled: true,

@@ -6,20 +6,20 @@
   "permissions": ["storage"],
   "host_permissions": ["*://*.youtube.com/*"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "extension/background.js"
   },
   "action": {
     "default_title": "YouTube AI Label Blocker"
   },
   "options_ui": {
-    "page": "options.html",
+    "page": "extension/options.html",
     "open_in_tab": false
   },
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "css": ["content.css"],
-      "js": ["settings.js", "content.js"],
+      "css": ["extension/content.css"],
+      "js": ["extension/settings.js", "extension/content.js"],
       "run_at": "document_idle"
     }
   ],
