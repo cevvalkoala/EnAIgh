@@ -2,6 +2,8 @@
 
 A small Firefox and Chrome extension that hides videos carrying YouTube's own "Made with AI" disclosure. It does not infer whether a video was made with AI or send data to an extension-operated backend. For uncached visible videos whose result cards omit the disclosure, it requests the public YouTube watch page without cookies.
 
+It is available on Firefox's addon site (`https://addons.mozilla.org/en-US/firefox/addon/enaigh/`). Feel free to upload it to Chrome's extensions site. I don't have a developer account with Google.
+
 ## Install for testing
 
 - Chrome: open `chrome://extensions`, enable Developer mode, and choose **Load unpacked** with this folder. Chrome uses the root `manifest.json`.
