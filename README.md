@@ -1,4 +1,4 @@
-# YouTube AI Label Blocker
+# AI Slop Blocker for YouTube
 
 A small Firefox and Chrome extension that hides videos carrying YouTube's own "Made with AI" disclosure. It does not infer whether a video was made with AI and does not contact a remote service.
 
@@ -11,12 +11,16 @@ A small Firefox and Chrome extension that hides videos carrying YouTube's own "M
 
 ## Detection
 
-YouTube's search `videoRenderer` data does not always include its AI badge. For visible supported cards without a DOM disclosure marker, the extension fetches that video's public watch page without cookies and checks the structured `howThisWasMadeSectionViewModel` disclosure (`bodyHeader: "Made with AI"`). Results are cached locally for seven days, with at most three checks running concurrently. This is necessary for search results like the supplied examples, where the label appears on the watch page but not in the search renderer. Direct DOM checks also recognize the accessible AI label and official disclosure link (`youtube/answer/15447836`); titles and thumbnails are never used as heuristics.
+YouTube's search `videoRenderer` data does not always include its AI badge. For visible supported cards without a DOM disclosure marker, the extension fetches that video's public watch page without cookies and checks the structured `howThisWasMadeSectionViewModel` disclosure (`bodyHeader: "Made with AI"`). Results are cached locally for seven days, with at most three checks running concurrently. Direct DOM checks also recognize the accessible AI label and official disclosure link (`youtube/answer/15447836`); titles and thumbnails are never used as heuristics.
 
 Supported surfaces are watch-page sidebar recommendations, search results, Shorts cards, and the Shorts feed. YouTube frequently changes its component markup, so selectors and disclosure markers may need maintenance. Disclosure wording is localized by YouTube; the language-independent help link is recognized alongside the exact English accessible label and disclosure text.
 
-Only videos YouTube labels are filtered. Undisclosed AI-generated videos are not detected. Other surfaces such as the home feed and channel pages are not generally filtered, except for Shorts cards and Shorts feed items.
+Only videos explicitly labeled by YouTube as "Made with AI" are filtered. Undisclosed AI-generated videos are not detected. Other surfaces such as the home feed and channel pages are not generally filtered, except for Shorts cards and Shorts feed items.
 
 ## Settings and permissions
 
 Settings are stored in `storage.sync` with a local-storage fallback. The extension requests only the storage permission and access to YouTube pages.
+
+## Disclosure
+This extension is also made with AI. I tested it for some time on my own machine, but I don't claim to understand the whole code.
+I understand most people have reservations about using slopcoded applications. Still, feel free to analyze, use, debug, revise, or otherwise comment on the code. The code is yours, hoping it will save you from some irritating videos.
