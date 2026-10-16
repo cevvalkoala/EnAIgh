@@ -4,8 +4,8 @@ A small Firefox and Chrome extension that hides videos carrying YouTube's own "M
 
 ## Install for testing
 
-- Chrome: open `chrome://extensions`, enable Developer mode, and choose **Load unpacked** with this folder.
-- Firefox: open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on**, and select `manifest.firefox.json`.
+- Chrome: open `chrome://extensions`, enable Developer mode, and choose **Load unpacked** with this folder. Chrome uses the root `manifest.json`.
+- Firefox: open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on**, and select `manifest.firefox.json` (not the root `manifest.json`). Firefox's manifest uses `background.scripts`; loading the Chrome manifest causes the `background.service_worker is currently disabled` error.
 - The toolbar badge shows `ON` or `OFF`; click the extension button to toggle the master filter.
 - Open the extension's options to control sidebar recommendations, search results, and Shorts independently.
 
