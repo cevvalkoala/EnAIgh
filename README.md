@@ -1,6 +1,6 @@
-# AI Slop Blocker for YouTube
+# EnAIgh
 
-A small Firefox and Chrome extension that hides videos carrying YouTube's own "Made with AI" disclosure. It does not infer whether a video was made with AI and does not contact a remote service.
+A small Firefox and Chrome extension that hides videos carrying YouTube's own "Made with AI" disclosure. It does not infer whether a video was made with AI or send data to an extension-operated backend. For uncached visible videos whose result cards omit the disclosure, it requests the public YouTube watch page without cookies.
 
 ## Install for testing
 

@@ -1,15 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "YouTube AI Label Blocker",
-  "version": "1.0.0",
+  "name": "EnAIgh",
+  "version": "1.1.1",
   "description": "Hide YouTube videos carrying its Made with AI disclosure.",
   "permissions": ["storage"],
   "host_permissions": ["*://*.youtube.com/*"],
+  "icons": {
+    "16": "icons/on/icon-16.png",
+    "32": "icons/on/icon-32.png",
+    "48": "icons/on/icon-48.png",
+    "96": "icons/on/icon-96.png",
+    "128": "icons/store/icon-store-128-on.png"
+  },
   "background": {
     "scripts": ["settings.js", "background.js"]
   },
   "action": {
-    "default_title": "YouTube AI Label Blocker"
+    "default_title": "EnAIgh",
+    "default_icon": {
+      "16": "icons/on/icon-16.png",
+      "32": "icons/on/icon-32.png",
+      "48": "icons/on/icon-48.png",
+      "96": "icons/on/icon-96.png",
+      "128": "icons/on/icon-128.png"
+    }
   },
   "options_ui": {
     "page": "options.html",
@@ -26,7 +40,13 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "youtube-ai-label-blocker@enaigh.local",
-      "strict_min_version": "109.0"
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["browsingActivity"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
     }
   }
 }
